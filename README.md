@@ -1,6 +1,6 @@
 # Odoo-DataCenters_inventory-production
 
-Odoo 18 module **`cloud_inventory`**: a standalone datacenter equipment inventory for a Cloud department, fully separate from the ERP stock (no dependency on `stock`).
+Odoo 17 18 19 module **`cloud_inventory`**: a standalone datacenter equipment inventory for a Cloud department, fully separate from the ERP stock (no dependency on `stock`).
 
 ## Features
 - **Location hierarchy:** Datacenter → Hall → Room → Rack (lanes A/B/C/D, 48 RU) → RU position, plus one warehouse per datacenter.
@@ -25,7 +25,7 @@ Odoo 18 module **`cloud_inventory`**: a standalone datacenter equipment inventor
 | Cloud Inventory / Manager (Settings and Export) | Settings, Excel/PDF export, audit search. Implied for Odoo administrators |
 
 ## Upgrade notes
-Version 18.0.3.0.0 migrates the old "in stock / out" states to the new life-cycle states and racks from 42 to 48 RU.
+Version from 17 to 18 to 19 migrates the old "in stock / out" states to the new life-cycle states and racks from 42 to 48 RU.
 
 ## License
 LGPL-3

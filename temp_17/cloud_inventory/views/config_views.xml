@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Editable lists for every configurable variable (Settings > Variables) -->
+
+    <!-- Brand -->
+    <record id="view_brand_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.brand.tree</field>
+        <field name="model">cloud.inv.brand</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_brand" model="ir.actions.act_window">
+        <field name="name">Brands</field>
+        <field name="res_model">cloud.inv.brand</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Model -->
+    <record id="view_model_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.model.tree</field>
+        <field name="model">cloud.inv.model</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="brand_id"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_model" model="ir.actions.act_window">
+        <field name="name">Models</field>
+        <field name="res_model">cloud.inv.model</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- CPU -->
+    <record id="view_cpu_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.cpu.tree</field>
+        <field name="model">cloud.inv.cpu</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_cpu" model="ir.actions.act_window">
+        <field name="name">CPUs</field>
+        <field name="res_model">cloud.inv.cpu</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- RAM -->
+    <record id="view_ram_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.ram.tree</field>
+        <field name="model">cloud.inv.ram</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_ram" model="ir.actions.act_window">
+        <field name="name">RAM Sizes</field>
+        <field name="res_model">cloud.inv.ram</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Storage -->
+    <record id="view_storage_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.storage.tree</field>
+        <field name="model">cloud.inv.storage</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_storage" model="ir.actions.act_window">
+        <field name="name">Storage Sizes</field>
+        <field name="res_model">cloud.inv.storage</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Cluster -->
+    <record id="view_cluster_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.cluster.tree</field>
+        <field name="model">cloud.inv.cluster</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_cluster" model="ir.actions.act_window">
+        <field name="name">Clusters</field>
+        <field name="res_model">cloud.inv.cluster</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Site -->
+    <record id="view_site_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.site.tree</field>
+        <field name="model">cloud.inv.site</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_site" model="ir.actions.act_window">
+        <field name="name">Sites</field>
+        <field name="res_model">cloud.inv.site</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- TAG -->
+    <record id="view_tag_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.tag.tree</field>
+        <field name="model">cloud.inv.tag</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_tag" model="ir.actions.act_window">
+        <field name="name">TAGs (platforms)</field>
+        <field name="res_model">cloud.inv.tag</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Product type -->
+    <record id="view_product_type_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.product.type.tree</field>
+        <field name="model">cloud.inv.product.type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/><field name="nature"/></tree>
+        </field>
+    </record>
+    <record id="action_product_type" model="ir.actions.act_window">
+        <field name="name">Product Types</field>
+        <field name="res_model">cloud.inv.product.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- NIC -->
+    <record id="view_nic_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.nic.tree</field>
+        <field name="model">cloud.inv.nic</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_nic" model="ir.actions.act_window">
+        <field name="name">NICs</field>
+        <field name="res_model">cloud.inv.nic</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- HBA -->
+    <record id="view_hba_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.hba.tree</field>
+        <field name="model">cloud.inv.hba</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"><field name="sequence" widget="handle"/><field name="name"/></tree>
+        </field>
+    </record>
+    <record id="action_hba" model="ir.actions.act_window">
+        <field name="name">HBAs</field>
+        <field name="res_model">cloud.inv.hba</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Datacenters -->
+    <record id="dc_cdc" model="cloud.inv.datacenter">
+        <field name="name">Casa Data Center</field>
+        <field name="code">CDC</field>
+        <field name="city">Casablanca</field>
+        <field name="color">4</field>
+    </record>
+    <record id="dc_bdc" model="cloud.inv.datacenter">
+        <field name="name">Benguerir Data Center</field>
+        <field name="code">BDC</field>
+        <field name="city">Benguerir</field>
+        <field name="color">10</field>
+    </record>
+
+    <!-- Warehouses (one per datacenter) -->
+    <record id="wh_cdc" model="cloud.inv.warehouse">
+        <field name="name">Warehouse</field><field name="datacenter_id" ref="dc_cdc"/>
+    </record>
+    <record id="wh_bdc" model="cloud.inv.warehouse">
+        <field name="name">Warehouse</field><field name="datacenter_id" ref="dc_bdc"/>
+    </record>
+
+    <!-- Sites -->
+    <record id="site_bg" model="cloud.inv.site"><field name="name">BG</field><field name="sequence">1</field></record>
+    <record id="site_cs" model="cloud.inv.site"><field name="name">CS</field><field name="sequence">2</field></record>
+
+    <!-- TAG / platform -->
+    <record id="tag_vmware" model="cloud.inv.tag"><field name="name">Vmware</field><field name="sequence">1</field></record>
+    <record id="tag_nutanix" model="cloud.inv.tag"><field name="name">Nutanix</field><field name="sequence">2</field></record>
+
+    <!-- Brands and models -->
+    <record id="brand_dell" model="cloud.inv.brand"><field name="name">DELL</field><field name="sequence">1</field></record>
+    <record id="brand_supermicro" model="cloud.inv.brand"><field name="name">SuperMicro</field><field name="sequence">2</field></record>
+    <record id="model_vxrail" model="cloud.inv.model">
+        <field name="name">VxRail P570F</field><field name="brand_id" ref="brand_dell"/>
+    </record>
+    <record id="model_nx8150" model="cloud.inv.model">
+        <field name="name">NX-8150-G9</field><field name="brand_id" ref="brand_supermicro"/>
+    </record>
+
+    <!-- Clusters -->
+    <record id="cluster_az1" model="cloud.inv.cluster"><field name="name">CLUSTER-01-Gold</field></record>
+    <record id="cluster_np1" model="cloud.inv.cluster"><field name="name">CLUSTER-02-Prod</field></record>
+
+    <!-- CPU / RAM / Storage -->
+    <record id="cpu_5218r" model="cloud.inv.cpu"><field name="name">Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz</field></record>
+    <record id="cpu_6416h" model="cloud.inv.cpu"><field name="name">Intel(R) Xeon(R) Gold 6416H</field></record>
+    <record id="ram_15" model="cloud.inv.ram"><field name="name">1.5 TB</field></record>
+    <record id="storage_100" model="cloud.inv.storage"><field name="name">100 Tb</field></record>
+    <record id="storage_9468" model="cloud.inv.storage"><field name="name">94.68 Tb</field></record>
+
+    <!-- Product types -->
+    <record id="ptype_server" model="cloud.inv.product.type"><field name="name">Server</field><field name="nature">physical</field><field name="sequence">1</field></record>
+    <record id="ptype_switch" model="cloud.inv.product.type"><field name="name">Network Switch</field><field name="nature">physical</field><field name="sequence">2</field></record>
+    <record id="ptype_storage" model="cloud.inv.product.type"><field name="name">Storage Array</field><field name="nature">physical</field><field name="sequence">3</field></record>
+    <record id="ptype_license" model="cloud.inv.product.type"><field name="name">License</field><field name="nature">digital</field><field name="sequence">4</field></record>
+    <record id="ptype_key" model="cloud.inv.product.type"><field name="name">Activation Key</field><field name="nature">digital</field><field name="sequence">5</field></record>
+    <record id="ptype_vm" model="cloud.inv.product.type"><field name="name">Virtual Machine</field><field name="nature">logical</field><field name="sequence">6</field></record>
+
+    <!-- Single dashboard record opened by the Home menu -->
+    <record id="dashboard_main" model="cloud.inv.dashboard"/>
+</odoo>

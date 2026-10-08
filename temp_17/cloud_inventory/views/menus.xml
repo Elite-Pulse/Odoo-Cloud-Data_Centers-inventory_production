@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_cloud_inv_root" name="Cloud Inventory" sequence="60"
+              web_icon="base,static/description/icon.png"
+              groups="cloud_inventory.group_cloud_inv_user"/>
+
+    <!-- HOME -->
+    <menuitem id="menu_cloud_inv_home" name="Home" parent="menu_cloud_inv_root" sequence="1"
+              action="action_dashboard"/>
+
+    <!-- STOCK -->
+    <menuitem id="menu_cloud_inv_stock" name="Inventory" parent="menu_cloud_inv_root" sequence="2"/>
+    <menuitem id="menu_cloud_inv_assets" name="All Equipment" parent="menu_cloud_inv_stock" sequence="1"
+              action="action_asset"/>
+    <menuitem id="menu_cloud_inv_asset_new" name="Add Equipment" parent="menu_cloud_inv_stock" sequence="2"
+              action="action_asset_new"/>
+    <menuitem id="menu_cloud_inv_movements" name="Movements" parent="menu_cloud_inv_stock" sequence="3"
+              action="action_movement"/>
+    <menuitem id="menu_cloud_inv_warehouses_view" name="Warehouses" parent="menu_cloud_inv_stock" sequence="4"
+              action="action_warehouse"/>
+    <menuitem id="menu_cloud_inv_racks_view" name="Rack Usage" parent="menu_cloud_inv_stock" sequence="5"
+              action="action_rack"/>
+
+    <!-- REPORTING -->
+    <menuitem id="menu_cloud_inv_reporting" name="Reporting" parent="menu_cloud_inv_root" sequence="3"/>
+    <menuitem id="menu_cloud_inv_analysis" name="Analysis (pivot / graph)" parent="menu_cloud_inv_reporting" sequence="1"
+              action="action_asset_analysis"/>
+    <menuitem id="menu_cloud_inv_export" name="Export Excel / PDF" parent="menu_cloud_inv_reporting" sequence="2"
+              action="action_report_wizard" groups="cloud_inventory.group_cloud_inv_manager"/>
+    <menuitem id="menu_cloud_inv_audit" name="Audit Search" parent="menu_cloud_inv_reporting" sequence="3"
+              action="action_report_audit" groups="cloud_inventory.group_cloud_inv_manager"/>
+    <menuitem id="menu_cloud_inv_predefined" name="Predefined Reports" parent="menu_cloud_inv_reporting" sequence="4"
+              groups="cloud_inventory.group_cloud_inv_manager"/>
+    <menuitem id="menu_rep_in_warehouse" name="Equipment in Warehouse" parent="menu_cloud_inv_predefined" sequence="1" action="action_report_in_warehouse"/>
+    <menuitem id="menu_rep_in_service" name="Equipment in Service" parent="menu_cloud_inv_predefined" sequence="2" action="action_report_in_service"/>
+    <menuitem id="menu_rep_in_transit" name="Equipment in Transit" parent="menu_cloud_inv_predefined" sequence="3" action="action_report_in_transit"/>
+    <menuitem id="menu_rep_decom" name="Decommissioned Equipment" parent="menu_cloud_inv_predefined" sequence="4" action="action_report_decommissioned"/>
+    <menuitem id="menu_rep_digital" name="Licenses and Keys" parent="menu_cloud_inv_predefined" sequence="5" action="action_report_digital"/>
+    <menuitem id="menu_rep_logical" name="Logical Items" parent="menu_cloud_inv_predefined" sequence="6" action="action_report_logical"/>
+    <menuitem id="menu_rep_bdc" name="Benguerir (BDC)" parent="menu_cloud_inv_predefined" sequence="7" action="action_report_bdc"/>
+    <menuitem id="menu_rep_cdc" name="Casa (CDC)" parent="menu_cloud_inv_predefined" sequence="8" action="action_report_cdc"/>
+
+    <!-- SETTINGS -->
+    <menuitem id="menu_cloud_inv_settings" name="Settings" parent="menu_cloud_inv_root" sequence="10"
+              groups="cloud_inventory.group_cloud_inv_manager"/>
+
+    <menuitem id="menu_cloud_inv_locations" name="Locations" parent="menu_cloud_inv_settings" sequence="1"/>
+    <menuitem id="menu_cloud_inv_dc" name="Datacenters" parent="menu_cloud_inv_locations" sequence="1" action="action_datacenter"/>
+    <menuitem id="menu_cloud_inv_hall" name="Halls" parent="menu_cloud_inv_locations" sequence="2" action="action_hall"/>
+    <menuitem id="menu_cloud_inv_room" name="Rooms" parent="menu_cloud_inv_locations" sequence="3" action="action_room"/>
+    <menuitem id="menu_cloud_inv_rack" name="Racks" parent="menu_cloud_inv_locations" sequence="4" action="action_rack"/>
+    <menuitem id="menu_cloud_inv_wh" name="Warehouses" parent="menu_cloud_inv_locations" sequence="5" action="action_warehouse"/>
+
+    <menuitem id="menu_cloud_inv_variables" name="Variables" parent="menu_cloud_inv_settings" sequence="2"/>
+    <menuitem id="menu_cloud_inv_ptype" name="Product Types" parent="menu_cloud_inv_variables" sequence="1" action="action_product_type"/>
+    <menuitem id="menu_cloud_inv_brand" name="Brands" parent="menu_cloud_inv_variables" sequence="2" action="action_brand"/>
+    <menuitem id="menu_cloud_inv_model" name="Models" parent="menu_cloud_inv_variables" sequence="3" action="action_model"/>
+    <menuitem id="menu_cloud_inv_cluster" name="Clusters" parent="menu_cloud_inv_variables" sequence="4" action="action_cluster"/>
+    <menuitem id="menu_cloud_inv_cpu" name="CPUs" parent="menu_cloud_inv_variables" sequence="5" action="action_cpu"/>
+    <menuitem id="menu_cloud_inv_ram" name="RAM Sizes" parent="menu_cloud_inv_variables" sequence="6" action="action_ram"/>
+    <menuitem id="menu_cloud_inv_storage" name="Storage Sizes" parent="menu_cloud_inv_variables" sequence="7" action="action_storage"/>
+    <menuitem id="menu_cloud_inv_tag" name="TAGs (platforms)" parent="menu_cloud_inv_variables" sequence="8" action="action_tag"/>
+    <menuitem id="menu_cloud_inv_site" name="Sites" parent="menu_cloud_inv_variables" sequence="9" action="action_site"/>
+    <menuitem id="menu_cloud_inv_nic" name="NICs" parent="menu_cloud_inv_variables" sequence="10" action="action_nic"/>
+    <menuitem id="menu_cloud_inv_hba" name="HBAs" parent="menu_cloud_inv_variables" sequence="11" action="action_hba"/>
+
+    <!-- LANGUAGE (switches the language of the current user: FR / EN) -->
+    <record id="server_action_lang_fr" model="ir.actions.server">
+        <field name="name">Switch to French</field>
+        <field name="model_id" ref="model_cloud_inv_asset"/>
+        <field name="state">code</field>
+        <field name="code">action = env['cloud.inv.asset'].action_switch_lang('fr_FR')</field>
+    </record>
+    <record id="server_action_lang_en" model="ir.actions.server">
+        <field name="name">Switch to English</field>
+        <field name="model_id" ref="model_cloud_inv_asset"/>
+        <field name="state">code</field>
+        <field name="code">action = env['cloud.inv.asset'].action_switch_lang('en_US')</field>
+    </record>
+    <menuitem id="menu_cloud_inv_lang" name="Language" parent="menu_cloud_inv_root" sequence="20"/>
+    <menuitem id="menu_cloud_inv_lang_fr" name="Français" parent="menu_cloud_inv_lang" sequence="1"
+              action="server_action_lang_fr"/>
+    <menuitem id="menu_cloud_inv_lang_en" name="English" parent="menu_cloud_inv_lang" sequence="2"
+              action="server_action_lang_en"/>
+</odoo>

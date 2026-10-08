@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================= DATACENTER ================= -->
+    <record id="view_datacenter_kanban" model="ir.ui.view">
+        <field name="name">cloud.inv.datacenter.kanban</field>
+        <field name="model">cloud.inv.datacenter</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="city"/>
+                <field name="hall_count"/>
+                <field name="asset_count"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box"><div class="oe_kanban_global_click">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <div class="fs-1 fw-bold me-3"><field name="code"/></div>
+                                <div>
+                                    <strong><field name="name"/></strong>
+                                    <div class="text-muted"><field name="city"/></div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <span class="badge text-bg-primary me-1"><field name="hall_count"/> Halls</span>
+                                <span class="badge text-bg-success"><field name="asset_count"/> products</span>
+                            </div>
+                        </div>
+</div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_datacenter_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.datacenter.tree</field>
+        <field name="model">cloud.inv.datacenter</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="city"/>
+                <field name="hall_count"/>
+                <field name="asset_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_datacenter_form" model="ir.ui.view">
+        <field name="name">cloud.inv.datacenter.form</field>
+        <field name="model">cloud.inv.datacenter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_assets" type="object" class="oe_stat_button" icon="fa-server">
+                            <field name="asset_count" widget="statinfo" string="Products"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Halls">
+                            <field name="hall_ids">
+                                <tree editable="bottom"><field name="name"/></tree>
+                            </field>
+                        </page>
+                        <page string="Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_datacenter" model="ir.actions.act_window">
+        <field name="name">Datacenters</field>
+        <field name="res_model">cloud.inv.datacenter</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- ================= WAREHOUSE ================= -->
+    <record id="view_warehouse_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.warehouse.tree</field>
+        <field name="model">cloud.inv.warehouse</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="datacenter_id"/>
+                <field name="name"/>
+                <field name="asset_count"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_warehouse_form" model="ir.ui.view">
+        <field name="name">cloud.inv.warehouse.form</field>
+        <field name="model">cloud.inv.warehouse</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_assets" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="asset_count" widget="statinfo" string="Items in Warehouse"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="datacenter_id"/>
+                        </group>
+                        <group><field name="active"/></group>
+                    </group>
+                    <field name="note" placeholder="Notes..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_warehouse" model="ir.actions.act_window">
+        <field name="name">Warehouses</field>
+        <field name="res_model">cloud.inv.warehouse</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ================= HALL ================= -->
+    <record id="view_hall_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.hall.tree</field>
+        <field name="model">cloud.inv.hall</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="datacenter_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_hall_form" model="ir.ui.view">
+        <field name="name">cloud.inv.hall.form</field>
+        <field name="model">cloud.inv.hall</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="datacenter_id"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Rooms">
+                            <field name="room_ids"><tree editable="bottom"><field name="name"/></tree></field>
+                        </page>
+                        <page string="Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_hall_search" model="ir.ui.view">
+        <field name="name">cloud.inv.hall.search</field>
+        <field name="model">cloud.inv.hall</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="datacenter_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_dc" string="Datacenter" context="{'group_by': 'datacenter_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_hall" model="ir.actions.act_window">
+        <field name="name">Halls</field>
+        <field name="res_model">cloud.inv.hall</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_g_dc': 1}</field>
+    </record>
+
+    <!-- ================= ROOM ================= -->
+    <record id="view_room_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.room.tree</field>
+        <field name="model">cloud.inv.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="datacenter_id"/>
+                <field name="hall_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_room_form" model="ir.ui.view">
+        <field name="name">cloud.inv.room.form</field>
+        <field name="model">cloud.inv.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_racks" type="object" string="Generate Racks by Lane" class="btn-primary"
+                            invisible="not id"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="hall_id"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Racks">
+                            <field name="rack_ids">
+                                <tree editable="bottom"><field name="lane"/><field name="number"/><field name="name"/><field name="total_ru"/></tree>
+                            </field>
+                        </page>
+                        <page string="Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_room_search" model="ir.ui.view">
+        <field name="name">cloud.inv.room.search</field>
+        <field name="model">cloud.inv.room</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="hall_id"/>
+                <field name="datacenter_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_dc" string="Datacenter" context="{'group_by': 'datacenter_id'}"/>
+                    <filter name="g_hall" string="Hall" context="{'group_by': 'hall_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_room" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="res_model">cloud.inv.room</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_g_hall': 1}</field>
+    </record>
+
+    <!-- ================= RACK ================= -->
+    <record id="view_rack_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.rack.tree</field>
+        <field name="model">cloud.inv.rack</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="datacenter_id"/>
+                <field name="hall_id"/>
+                <field name="room_id"/>
+                <field name="lane"/>
+                <field name="number"/>
+                <field name="name"/>
+                <field name="total_ru"/>
+                <field name="used_ru"/>
+                <field name="free_ru"/>
+                <field name="usage_percent" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_rack_form" model="ir.ui.view">
+        <field name="name">cloud.inv.rack.form</field>
+        <field name="model">cloud.inv.rack</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="room_id"/>
+                            <field name="name"/>
+                            <field name="lane"/>
+                            <field name="number"/>
+                            <field name="total_ru"/>
+                        </group>
+                        <group>
+                            <field name="used_ru"/>
+                            <field name="free_ru"/>
+                            <field name="usage_percent" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Mounted Equipment">
+                            <field name="asset_ids" readonly="1">
+                                <tree>
+                                    <field name="ru_display"/>
+                                    <field name="reference"/>
+                                    <field name="name"/>
+                                    <field name="brand_id"/>
+                                    <field name="model_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_rack_search" model="ir.ui.view">
+        <field name="name">cloud.inv.rack.search</field>
+        <field name="model">cloud.inv.rack</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="room_id"/>
+                <field name="hall_id"/>
+                <field name="datacenter_id"/>
+                <field name="lane"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_dc" string="Datacenter" context="{'group_by': 'datacenter_id'}"/>
+                    <filter name="g_hall" string="Hall" context="{'group_by': 'hall_id'}"/>
+                    <filter name="g_room" string="Room" context="{'group_by': 'room_id'}"/>
+                    <filter name="g_lane" string="Lane" context="{'group_by': 'lane'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_rack" model="ir.actions.act_window">
+        <field name="name">Racks</field>
+        <field name="res_model">cloud.inv.rack</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_g_room': 1, 'search_default_g_lane': 1}</field>
+    </record>
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dashboard_form" model="ir.ui.view">
+        <field name="name">cloud.inv.dashboard.form</field>
+        <field name="model">cloud.inv.dashboard</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0" duplicate="0">
+                <sheet>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa fa-cloud fa-3x text-primary me-3"/>
+                        <div>
+                            <h1 class="mb-0">Cloud Inventory Overview</h1>
+                            <p class="text-muted mb-0">Equipment inventory independent from the ERP stock. Click an indicator to see the details.</p>
+                        </div>
+                    </div>
+                    <div class="oe_button_box d-flex flex-wrap" name="button_box" style="position:static">
+                        <button name="action_total" type="object" class="oe_stat_button" icon="fa-cubes">
+                            <field name="total" widget="statinfo" string="Total Products"/>
+                        </button>
+                        <button name="action_in_warehouse" type="object" class="oe_stat_button" icon="fa-archive text-info">
+                            <field name="in_warehouse" widget="statinfo" string="In Warehouse"/>
+                        </button>
+                        <button name="action_in_service" type="object" class="oe_stat_button" icon="fa-check-circle text-success">
+                            <field name="in_service" widget="statinfo" string="In Service"/>
+                        </button>
+                        <button name="action_in_transit" type="object" class="oe_stat_button" icon="fa-truck text-warning">
+                            <field name="in_transit" widget="statinfo" string="In Transit"/>
+                        </button>
+                        <button name="action_decommissioned" type="object" class="oe_stat_button" icon="fa-ban text-danger">
+                            <field name="decommissioned" widget="statinfo" string="Decommissioned"/>
+                        </button>
+                        <button name="action_physical" type="object" class="oe_stat_button" icon="fa-server">
+                            <field name="physical" widget="statinfo" string="Physical"/>
+                        </button>
+                        <button name="action_digital" type="object" class="oe_stat_button" icon="fa-key">
+                            <field name="digital" widget="statinfo" string="Digital"/>
+                        </button>
+                        <button name="action_logical" type="object" class="oe_stat_button" icon="fa-sitemap">
+                            <field name="logical" widget="statinfo" string="Logical"/>
+                        </button>
+                        <button name="action_expiring" type="object" class="oe_stat_button" icon="fa-hourglass-half text-warning">
+                            <field name="expiring" widget="statinfo" string="Expiring in 30 days"/>
+                        </button>
+                        <button name="action_expired" type="object" class="oe_stat_button" icon="fa-exclamation-triangle text-danger">
+                            <field name="expired" widget="statinfo" string="Expired"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <div class="p-3 border rounded mb-3"><field name="html_state" nolabel="1"/></div>
+                            <div class="p-3 border rounded mb-3"><field name="html_datacenter" nolabel="1"/></div>
+                            <div class="p-3 border rounded"><field name="html_type" nolabel="1"/></div>
+                        </group>
+                        <group>
+                            <div class="p-3 border rounded mb-3"><field name="html_cluster" nolabel="1"/></div>
+                            <div class="p-3 border rounded mb-3"><field name="html_brand" nolabel="1"/></div>
+                            <div class="p-3 border rounded"><field name="html_racks" nolabel="1"/></div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dashboard" model="ir.actions.act_window">
+        <field name="name">Cloud Inventory Overview</field>
+        <field name="res_model">cloud.inv.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="res_id" eval="ref('cloud_inventory.dashboard_main')"/>
+    </record>
+</odoo>

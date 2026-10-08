@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================= LIST ================= -->
+    <record id="view_asset_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.tree</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'decommissioned'" decoration-warning="state == 'in_transit'" decoration-danger="nature == 'digital' and license_expiry and license_expiry &lt; current_date and state != 'decommissioned'">
+                <header>
+                    <button name="action_export_xlsx_selected" type="object" string="Export Excel" icon="fa-file-excel-o"
+                            groups="cloud_inventory.group_cloud_inv_manager"/>
+                    <button name="action_print_pdf_selected" type="object" string="Export PDF" icon="fa-file-pdf-o"
+                            groups="cloud_inventory.group_cloud_inv_manager"/>
+                </header>
+                <field name="reference" optional="show"/>
+                <field name="nature" widget="badge" decoration-info="nature == 'physical'" decoration-success="nature == 'digital'" decoration-warning="nature == 'logical'" optional="show"/>
+                <field name="product_type_id" optional="show"/>
+                <field name="brand_id" optional="show"/>
+                <field name="model_id" optional="show"/>
+                <field name="name"/>
+                <field name="cluster_id" optional="show"/>
+                <field name="cpu_id" optional="hide"/>
+                <field name="ram_id" optional="show"/>
+                <field name="storage_id" optional="show"/>
+                <field name="nic_ids" widget="many2many_tags" optional="hide"/>
+                <field name="hba_ids" widget="many2many_tags" optional="hide"/>
+                <field name="service_tag" optional="show"/>
+                <field name="tag_id" optional="show"/>
+                <field name="datacenter_id" optional="show"/>
+                <field name="warehouse_id" optional="show"/>
+                <field name="hall_id" optional="hide"/>
+                <field name="room_id" optional="hide"/>
+                <field name="rack_lane" optional="hide"/>
+                <field name="rack_id" optional="show"/>
+                <field name="ru_display" optional="show"/>
+                <field name="site_id" optional="show"/>
+                <field name="date_in" optional="show"/>
+                <field name="date_out" optional="show"/>
+                <field name="responsible_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="license_expiry" optional="hide"/>
+                <field name="last_reason" optional="hide"/>
+                <field name="state" widget="badge" decoration-success="state == 'in_service'" decoration-info="state == 'in_warehouse'" decoration-warning="state == 'in_transit'" decoration-danger="state == 'decommissioned'"/>
+                <field name="comment" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================= FORM ================= -->
+    <record id="view_asset_form" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.form</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_deploy" string="Put in Service" type="object" class="btn-primary"
+                            invisible="state not in ('in_warehouse', 'in_transit')"/>
+                    <button name="action_relocate" string="Relocate" type="object"
+                            invisible="state != 'in_service'"/>
+                    <button name="action_return" string="Return to Warehouse" type="object"
+                            invisible="state not in ('in_service', 'in_transit')"/>
+                    <button name="action_transfer" string="Send to Another Site" type="object"
+                            invisible="state not in ('in_warehouse', 'in_service')"/>
+                    <button name="action_decommission" string="Decommission" type="object"
+                            invisible="state == 'decommissioned'"/>
+                    <button name="action_receive" string="Receive in Warehouse" type="object"
+                            invisible="state != 'decommissioned'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="in_warehouse,in_service,in_transit,decommissioned"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_movements" type="object" class="oe_stat_button" icon="fa-exchange">
+                            <field name="move_count" widget="statinfo" string="Movements"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Decommissioned" bg_color="text-bg-danger" invisible="state != 'decommissioned'"/>
+                    <widget name="web_ribbon" title="In Transit" bg_color="text-bg-warning" invisible="state != 'in_transit'"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="hostname, license name..."/></h1>
+                        <h3 class="text-muted"><field name="reference"/></h3>
+                    </div>
+                    <group>
+                        <group string="Identification">
+                            <field name="nature" widget="radio" options="{'horizontal': true}"/>
+                            <field name="product_type_id" options="{'no_create_edit': True}"/>
+                            <field name="brand_id"/>
+                            <field name="model_id" context="{'default_brand_id': brand_id}"/>
+                            <field name="tag_id"/>
+                            <field name="site_id"/>
+                        </group>
+                        <group string="Life Cycle">
+                            <field name="date_in"/>
+                            <field name="date_out" readonly="state == 'in_warehouse'"/>
+                            <field name="last_reason"/>
+                            <field name="request_ref"/>
+                            <field name="responsible_id" widget="many2one_avatar_user"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Specifications" name="specs" invisible="nature == 'digital'">
+                            <group>
+                                <group>
+                                    <field name="cluster_id"/>
+                                    <field name="service_tag" invisible="nature != 'physical'"/>
+                                </group>
+                                <group>
+                                    <field name="cpu_id"/>
+                                    <field name="ram_id"/>
+                                    <field name="storage_id"/>
+                                    <field name="nic_ids" widget="many2many_tags" invisible="nature != 'physical'"/>
+                                    <field name="hba_ids" widget="many2many_tags" invisible="nature != 'physical'"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Location" name="location">
+                            <group>
+                                <group string="Datacenter">
+                                    <field name="datacenter_id" required="1" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                            <group invisible="state not in ('in_warehouse', 'decommissioned')">
+                                <group string="Warehouse">
+                                    <field name="warehouse_id" options="{'no_create': True}"/>
+                                    <field name="shelf"/>
+                                </group>
+                            </group>
+                            <group invisible="state != 'in_service'">
+                                <group string="Where is it?">
+                                    <field name="hall_id" options="{'no_create': True}"/>
+                                    <field name="room_id" options="{'no_create': True}"/>
+                                    <field name="rack_id" options="{'no_create': True}"/>
+                                    <field name="rack_lane"/>
+                                </group>
+                                <group string="Position in the rack (RU)" invisible="nature != 'physical'">
+                                    <field name="ru_start"/>
+                                    <field name="ru_end"/>
+                                    <field name="ru_display"/>
+                                </group>
+                            </group>
+                            <group invisible="state != 'in_transit'">
+                                <group string="Shipment">
+                                    <field name="destination_id" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="License / Key" name="license" invisible="nature != 'digital'">
+                            <group>
+                                <group>
+                                    <field name="license_key" password="True"/>
+                                    <field name="license_seats"/>
+                                </group>
+                                <group>
+                                    <field name="license_expiry"/>
+                                    <field name="service_tag" string="Serial / Contract No."/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Movement History" name="history">
+                            <field name="move_ids" readonly="1">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="move_type"/>
+                                    <field name="from_location"/>
+                                    <field name="to_location"/>
+                                    <field name="reason"/>
+                                    <field name="replacement_id" optional="show"/>
+                                    <field name="request_ref" optional="show"/>
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                    <field name="comment" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Comment" name="comment">
+                            <field name="comment" placeholder="Notes, history, remarks..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================= KANBAN ================= -->
+    <record id="view_asset_kanban" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.kanban</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="datacenter_id" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="state"/>
+                <field name="nature"/>
+                <field name="reference"/>
+                <field name="product_type_id"/>
+                <field name="brand_id"/>
+                <field name="model_id"/>
+                <field name="rack_id"/>
+                <field name="warehouse_id"/>
+                <field name="ru_display"/>
+                <field name="responsible_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div>
+                            <div class="d-flex justify-content-between">
+                                <strong><field name="name"/></strong>
+                                <field name="state" widget="label_selection"
+                                       options="{'classes': {'in_service': 'success', 'in_warehouse': 'info', 'in_transit': 'warning', 'decommissioned': 'danger'}}"/>
+                            </div>
+                            <div class="text-muted small"><field name="reference"/></div>
+                            <div class="mt-1">
+                                <span t-if="record.product_type_id.raw_value" class="badge text-bg-info me-1"><field name="product_type_id"/></span>
+                                <span class="badge text-bg-light"><field name="nature"/></span>
+                            </div>
+                            <div class="mt-1" t-if="record.brand_id.raw_value">
+                                <field name="brand_id"/> <field name="model_id"/>
+                            </div>
+                            <div class="mt-1" t-if="record.rack_id.raw_value">
+                                <field name="rack_id"/> · RU <field name="ru_display"/>
+                            </div>
+                            <div class="mt-1" t-if="record.warehouse_id.raw_value">
+                                <i class="fa fa-archive"/> <field name="warehouse_id"/>
+                            </div>
+                            <div class="d-flex justify-content-end mt-1">
+                                <field name="responsible_id" widget="many2one_avatar_user"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ================= PIVOT / GRAPH ================= -->
+    <record id="view_asset_pivot" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.pivot</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="datacenter_id" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="view_asset_graph" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.graph</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="product_type_id"/>
+                <field name="datacenter_id"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ================= SEARCH (advanced) ================= -->
+    <record id="view_asset_search" model="ir.ui.view">
+        <field name="name">cloud.inv.asset.search</field>
+        <field name="model">cloud.inv.asset</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name / Ref / Service Tag / Comment"
+                       filter_domain="['|','|','|',('name','ilike',self),('reference','ilike',self),('service_tag','ilike',self),('comment','ilike',self)]"/>
+                <field name="service_tag"/>
+                <field name="datacenter_id"/>
+                <field name="warehouse_id"/>
+                <field name="hall_id"/>
+                <field name="room_id"/>
+                <field name="rack_id"/>
+                <field name="rack_lane"/>
+                <field name="product_type_id"/>
+                <field name="brand_id"/>
+                <field name="model_id"/>
+                <field name="cluster_id"/>
+                <field name="cpu_id"/>
+                <field name="ram_id"/>
+                <field name="storage_id"/>
+                <field name="nic_ids"/>
+                <field name="hba_ids"/>
+                <field name="tag_id"/>
+                <field name="site_id"/>
+                <field name="request_ref"/>
+                <field name="responsible_id"/>
+                <field name="date_in"/>
+                <field name="date_out"/>
+                <separator/>
+                <filter name="f_in_warehouse" string="In Warehouse" domain="[('state','=','in_warehouse')]"/>
+                <filter name="f_in_service" string="In Service" domain="[('state','=','in_service')]"/>
+                <filter name="f_in_transit" string="In Transit" domain="[('state','=','in_transit')]"/>
+                <filter name="f_decommissioned" string="Decommissioned" domain="[('state','=','decommissioned')]"/>
+                <filter name="f_active" string="Active (not decommissioned)" domain="[('state','!=','decommissioned')]"/>
+                <separator/>
+                <filter name="f_physical" string="Physical" domain="[('nature','=','physical')]"/>
+                <filter name="f_digital" string="Digital (licenses / keys)" domain="[('nature','=','digital')]"/>
+                <filter name="f_logical" string="Logical" domain="[('nature','=','logical')]"/>
+                <separator/>
+                <filter name="f_in_30" string="Entered (last 30 days)"
+                        domain="[('date_in','&gt;=',(context_today()-relativedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <filter name="f_in_year" string="Entered this year"
+                        domain="[('date_in','&gt;=',context_today().strftime('%Y-01-01'))]"/>
+                <filter name="f_out_30" string="Exited (last 30 days)"
+                        domain="[('date_out','&gt;=',(context_today()-relativedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="f_expired" string="Expired licenses"
+                        domain="[('nature','=','digital'),('license_expiry','&lt;',context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="f_mine" string="My products" domain="[('responsible_id','=',uid)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_dc" string="Datacenter" context="{'group_by': 'datacenter_id'}"/>
+                    <filter name="g_wh" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                    <filter name="g_hall" string="Hall" context="{'group_by': 'hall_id'}"/>
+                    <filter name="g_room" string="Room" context="{'group_by': 'room_id'}"/>
+                    <filter name="g_lane" string="Lane" context="{'group_by': 'rack_lane'}"/>
+                    <filter name="g_rack" string="Rack" context="{'group_by': 'rack_id'}"/>
+                    <filter name="g_type" string="Product Type" context="{'group_by': 'product_type_id'}"/>
+                    <filter name="g_nature" string="Nature" context="{'group_by': 'nature'}"/>
+                    <filter name="g_brand" string="Brand" context="{'group_by': 'brand_id'}"/>
+                    <filter name="g_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="g_cluster" string="Cluster" context="{'group_by': 'cluster_id'}"/>
+                    <filter name="g_cpu" string="CPU" context="{'group_by': 'cpu_id'}"/>
+                    <filter name="g_ram" string="RAM" context="{'group_by': 'ram_id'}"/>
+                    <filter name="g_storage" string="Storage" context="{'group_by': 'storage_id'}"/>
+                    <filter name="g_tag" string="TAG" context="{'group_by': 'tag_id'}"/>
+                    <filter name="g_site" string="Site" context="{'group_by': 'site_id'}"/>
+                    <filter name="g_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="g_reason" string="Last Reason" context="{'group_by': 'last_reason'}"/>
+                    <filter name="g_resp" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+                    <filter name="g_date_in" string="Entry Date" context="{'group_by': 'date_in:month'}"/>
+                    <filter name="g_date_out" string="Exit Date" context="{'group_by': 'date_out:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ================= ACTIONS ================= -->
+    <record id="action_asset" model="ir.actions.act_window">
+        <field name="name">Equipment Inventory</field>
+        <field name="res_model">cloud.inv.asset</field>
+        <field name="view_mode">list,kanban,form,pivot,graph</field>
+        <field name="context">{'search_default_f_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your first equipment</p>
+            <p>Servers, switches, licenses, activation keys, virtual machines... everything is centralized here, separate from the ERP stock.</p>
+        </field>
+    </record>
+
+    <record id="action_asset_new" model="ir.actions.act_window">
+        <field name="name">New Equipment</field>
+        <field name="res_model">cloud.inv.asset</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="action_asset_analysis" model="ir.actions.act_window">
+        <field name="name">Inventory Analysis</field>
+        <field name="res_model">cloud.inv.asset</field>
+        <field name="view_mode">pivot,graph,list</field>
+    </record>
+
+    <!-- Export selected rows from the list (Action menu) - managers only -->
+    <record id="server_action_export_selected" model="ir.actions.server">
+        <field name="name">Export selection (Excel / PDF)</field>
+        <field name="model_id" ref="model_cloud_inv_asset"/>
+        <field name="binding_model_id" ref="model_cloud_inv_asset"/>
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('cloud_inventory.group_cloud_inv_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_export_selected()</field>
+    </record>
+
+    <!-- Move selected rows (Action menu) -->
+    <record id="server_action_move_selected" model="ir.actions.server">
+        <field name="name">Move / change status</field>
+        <field name="model_id" ref="model_cloud_inv_asset"/>
+        <field name="binding_model_id" ref="model_cloud_inv_asset"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_relocate()</field>
+    </record>
+</odoo>

@@ -26,7 +26,7 @@ Standalone inventory for the Cloud department (independent from the ERP stock mo
     'website': 'https://misterinfo.ma',
     'support': 'https://misterinfo.ma',
     'images': ['static/description/banner.png'],
-    'price': 274.99,
+    'price': 349.99,
     'currency': 'USD',
     'external_dependencies': {'python': ['xlsxwriter']},
     'depends': ['base', 'mail'],

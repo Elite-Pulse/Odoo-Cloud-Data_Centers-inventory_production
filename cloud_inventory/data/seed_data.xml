@@ -41,8 +41,8 @@
     </record>
 
     <!-- Clusters -->
-    <record id="cluster_az1" model="cloud.inv.cluster"><field name="name">BDC-AZ1-CL03-Gold</field></record>
-    <record id="cluster_np1" model="cloud.inv.cluster"><field name="name">BD1-NP1-CC</field></record>
+    <record id="cluster_az1" model="cloud.inv.cluster"><field name="name">CLUSTER-01-Gold</field></record>
+    <record id="cluster_np1" model="cloud.inv.cluster"><field name="name">CLUSTER-02-Prod</field></record>
 
     <!-- CPU / RAM / Storage -->
     <record id="cpu_5218r" model="cloud.inv.cpu"><field name="name">Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz</field></record>

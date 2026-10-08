@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Cloud Inventory',
+    'name': 'Datacenter Inventory (Cloud Inventory)',
     'version': '18.0.3.0.0',
     'category': 'Inventory/Cloud',
     'summary': 'Cloud datacenter inventory: servers, licenses, logical assets, racks, audit reporting (FR / EN)',
@@ -21,7 +21,14 @@ Standalone inventory for the Cloud department (independent from the ERP stock mo
 * Configurable lists (brands, models, CPU, RAM, storage, clusters, sites, tags, types)
 * French and English
     """,
-    'author': 'Cloud Team',
+    'author': 'Abdechakour Hrouchan',
+    'maintainer': 'Abdechakour Hrouchan',
+    'website': 'https://misterinfo.ma',
+    'support': 'https://misterinfo.ma',
+    'images': ['static/description/banner.png'],
+    'price': 274.99,
+    'currency': 'USD',
+    'external_dependencies': {'python': ['xlsxwriter']},
     'depends': ['base', 'mail'],
     'data': [
         'security/security.xml',
@@ -41,5 +48,5 @@ Standalone inventory for the Cloud department (independent from the ERP stock mo
     ],
     'application': True,
     'installable': True,
-    'license': 'LGPL-3',
+    'license': 'OPL-1',
 }

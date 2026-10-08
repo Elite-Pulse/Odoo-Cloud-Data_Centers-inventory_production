@@ -1,4 +1,4 @@
-# Odoo-DataCenters_inventory-production
+# Datacenter Inventory for Odoo 18
 
 Odoo 18 module **`cloud_inventory`**: a standalone datacenter equipment inventory for a Cloud department, fully separate from the ERP stock (no dependency on `stock`).
 
@@ -28,4 +28,7 @@ Odoo 18 module **`cloud_inventory`**: a standalone datacenter equipment inventor
 Version 18.0.3.0.0 migrates the old "in stock / out" states to the new life-cycle states and racks from 42 to 48 RU.
 
 ## License
-LGPL-3
+OPL-1 (Odoo Proprietary License v1.0), commercial module
+
+## Author
+Developed by **Abdechakour Hrouchan** — https://misterinfo.ma

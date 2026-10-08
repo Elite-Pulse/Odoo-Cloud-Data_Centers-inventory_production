@@ -1,0 +1,1900 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cloud_inventory
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+"Language: fr\n"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+msgid "Select at least one item."
+msgstr "Sélectionnez au moins un équipement."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+msgid "Select the destination warehouse."
+msgstr "Sélectionnez l'entrepôt de destination."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+msgid "Select the destination rack."
+msgstr "Sélectionnez le rack de destination."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+msgid "Set the RU position for one item at a time."
+msgstr "Renseignez la position RU pour un seul équipement à la fois."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+msgid "Select the destination site."
+msgstr "Sélectionnez le site de destination."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/move_wizard.py:0
+#, python-format
+msgid "%(type)s — %(comment)s"
+msgstr "%(type)s — %(comment)s"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_move_wizard
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Move equipment"
+msgstr "Déplacer l'équipement"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__asset_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__asset_ids
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__asset_id
+msgid "Equipment"
+msgstr "Équipements"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__move_type
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__move_type
+msgid "Movement Type"
+msgstr "Type de mouvement"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__receive
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__receive
+msgid "Receipt in warehouse"
+msgstr "Réception en entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__deploy
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__deploy
+msgid "Deployment (put in service)"
+msgstr "Déploiement (mise en service)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__relocate
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__relocate
+msgid "Relocation"
+msgstr "Déplacement (relocalisation)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__return
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__return
+msgid "Return to warehouse"
+msgstr "Retour en entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__transfer
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__transfer
+msgid "Transfer / shipment to another site"
+msgstr "Transfert / expédition vers un autre site"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__decommission
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__decommission
+msgid "Decommissioning"
+msgstr "Déclassement"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__move_type__update
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__move_type__update
+msgid "Manual update"
+msgstr "Mise à jour manuelle"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__reason
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__reason
+msgid "Reason"
+msgstr "Motif"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__received
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__received
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__received
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__received
+msgid "Received (new equipment)"
+msgstr "Reçu (nouvel équipement)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__new_request
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__new_request
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__new_request
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__new_request
+msgid "New request / project"
+msgstr "Nouvelle demande / projet"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__replaced
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__replaced
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__replaced
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__replaced
+msgid "Replaced"
+msgstr "Remplacé"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__obsolete
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__obsolete
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__obsolete
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__obsolete
+msgid "Obsolete"
+msgstr "Obsolète"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__deprecated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__deprecated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__deprecated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__deprecated
+msgid "Deprecated (end of life)"
+msgstr "Déprécié (fin de vie)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__upgraded
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__upgraded
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__upgraded
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__upgraded
+msgid "Upgraded"
+msgstr "Mis à niveau"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__faulty
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__faulty
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__faulty
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__faulty
+msgid "Faulty / failed"
+msgstr "Défectueux / en panne"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__reallocated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__reallocated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__reallocated
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__reallocated
+msgid "Reallocated (on request)"
+msgstr "Réaffecté (sur demande)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__surplus
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__surplus
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__surplus
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__surplus
+msgid "Surplus / no longer needed"
+msgstr "Excédent / plus nécessaire"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_move_wizard__reason__other
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__reason__other
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__last_reason__other
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_movement__reason__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__date
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__date
+msgid "Date"
+msgstr "Date"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__request_ref
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__request_ref
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__request_ref
+msgid "Request / Mail Reference"
+msgstr "Référence demande / mail"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__comment
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__comment
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__comment
+msgid "Comment"
+msgstr "Commentaire"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__replacement_id
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__replacement_id
+msgid "Replaced By / Replacing"
+msgstr "Remplacé par / Remplace"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__datacenter_id
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_hall_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__datacenter_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_datacenter
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_warehouse__datacenter_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hall__datacenter_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__datacenter_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__datacenter_id
+msgid "Datacenter"
+msgstr "Datacenter"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__warehouse_id
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__warehouse_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_warehouse
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_warehouse__name
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__shelf
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__shelf
+msgid "Shelf / Bin"
+msgstr "Étagère / Emplacement"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__hall_id
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__hall_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hall__name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__hall_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__hall_id
+msgid "Hall"
+msgstr "Hall"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__room_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__room_id
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__room_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_room
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__room_id
+msgid "Room"
+msgstr "Salle"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__rack_id
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__rack_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_rack
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__name
+msgid "Rack"
+msgstr "Rack"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__ru_start
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__ru_start
+msgid "RU Start"
+msgstr "RU début"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__ru_end
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__ru_end
+msgid "RU End"
+msgstr "RU fin"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_move_wizard__destination_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__destination_id
+msgid "Destination (other site)"
+msgstr "Destination (autre site)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Destination: Warehouse"
+msgstr "Destination : Entrepôt"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Destination: Rack"
+msgstr "Destination : Rack"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Destination: Other Site"
+msgstr "Destination : Autre site"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Comment (why is it moved, who asked for it...)"
+msgstr "Commentaire (pourquoi, à la demande de qui...)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_move_wizard_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_generator_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/rack_generator.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__rack_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_form
+#: model:ir.actions.act_window,name:cloud_inventory.action_rack
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_rack
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__rack_ids
+msgid "Racks"
+msgstr "Racks"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/rack_generator.py:0
+msgid "Define at least one lane and one rack per lane."
+msgstr "Définissez au moins une voie et un rack par voie."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/rack_generator.py:0
+#, python-format
+msgid "Unknown lane \"%s\". Use A, B, C or D."
+msgstr "Voie \"%s\" inconnue. Utilisez A, B, C ou D."
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_rack_generator
+msgid "Rack generator"
+msgstr "Générateur de racks"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__prefix
+msgid "Prefix"
+msgstr "Préfixe"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_rack_generator__prefix
+msgid "Example: H1.4 gives racks H1.4.A01, H1.4.A02 ..."
+msgstr "Exemple : H1.4 donne les racks H1.4.A01, H1.4.A02 ..."
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__lanes
+msgid "Lanes"
+msgstr "Voies"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_rack_generator__lanes
+msgid "Comma separated lane letters"
+msgstr "Lettres des voies séparées par des virgules"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__racks_per_lane
+msgid "Racks per Lane"
+msgstr "Racks par voie"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__total_ru
+msgid "RU per Rack"
+msgstr "RU par rack"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack_generator__padding
+msgid "Number Digits"
+msgstr "Chiffres du numéro"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_generator_form
+msgid "Generate"
+msgstr "Générer"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_generator_form
+#: code:addons/cloud_inventory/models/location.py:0
+msgid "Generate Racks"
+msgstr "Générer les racks"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "No filter (whole inventory)"
+msgstr "Aucun filtre (tout l'inventaire)"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__reference
+msgid "Reference"
+msgstr "Référence"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_config_mixin__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__from_location
+msgid "From"
+msgstr "De"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__to_location
+msgid "To"
+msgstr "Vers"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__user_id
+msgid "Done By"
+msgstr "Effectué par"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "Only Cloud Inventory managers and administrators can export data."
+msgstr "Seuls les responsables et administrateurs de Cloud Inventory peuvent exporter les données."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#, python-format
+msgid "Manual selection of %s item(s)"
+msgstr "Sélection manuelle de %s élément(s)"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Matched terms"
+msgstr "Termes trouvés"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Matched in"
+msgstr "Trouvé dans"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#, python-format
+msgid "%(count)s item(s) - generated on %(date)s by %(user)s"
+msgstr "%(count)s élément(s) - généré le %(date)s par %(user)s"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Search coverage"
+msgstr "Couverture de la recherche"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Search term"
+msgstr "Terme recherché"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Result"
+msgstr "Résultat"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Matches"
+msgstr "Correspondances"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "References"
+msgstr "Références"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Found"
+msgstr "Trouvé"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Not found"
+msgstr "Non trouvé"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Count"
+msgstr "Nombre"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "No result for these filters."
+msgstr "Aucun résultat pour ces filtres."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_stock
+msgid "Inventory"
+msgstr "Inventaire"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Movement history"
+msgstr "Historique des mouvements"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#, python-format
+msgid "Search terms: %s"
+msgstr "Termes recherchés : %s"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Exact match"
+msgstr "Correspondance exacte"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Partial match"
+msgstr "Correspondance partielle"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "All terms must match"
+msgstr "Tous les termes doivent correspondre"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "Any term may match"
+msgstr "Un seul terme suffit"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#, python-format
+msgid "Entry date: %(a)s to %(b)s"
+msgstr "Date d'entrée : du %(a)s au %(b)s"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#, python-format
+msgid "Exit date: %(a)s to %(b)s"
+msgstr "Date de sortie : du %(a)s au %(b)s"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_root
+#: model:ir.module.category,name:cloud_inventory.module_category_cloud_inv
+msgid "Cloud Inventory"
+msgstr "Inventaire Cloud"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+msgid "The Python package xlsxwriter is required."
+msgstr "Le paquet Python xlsxwriter est requis."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/wizard/report_wizard.py:0
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "Undefined"
+msgstr "Non défini"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_report_wizard
+msgid "Cloud Inventory Export (Excel / PDF)"
+msgstr "Export de l'inventaire Cloud (Excel / PDF)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__asset_ids
+msgid "Selection"
+msgstr "Sélection"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__report_type
+msgid "Report Type"
+msgstr "Type de rapport"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__report_type__detailed
+msgid "Detailed report (all columns)"
+msgstr "Rapport détaillé (toutes les colonnes)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__report_type__summary
+msgid "Summary report (counts only)"
+msgstr "Rapport résumé (comptages uniquement)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__report_type__audit
+msgid "Audit report (search coverage and matches)"
+msgstr "Rapport d'audit (couverture de la recherche et correspondances)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__search_terms
+msgid "Search Terms"
+msgstr "Termes de recherche"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_report_wizard__search_terms
+msgid "One or several terms, one per line (or separated by commas / semicolons). Each term is searched in every field: name, reference, service tag, brand, model, cluster, CPU, RAM, storage, TAG, site, location, responsible, comment, license key, dates..."
+msgstr "Un ou plusieurs termes, un par ligne (ou séparés par des virgules / points-virgules). Chaque terme est recherché dans tous les champs : nom, référence, service tag, marque, modèle, cluster, CPU, RAM, stockage, TAG, site, emplacement, responsable, commentaire, clé de licence, dates..."
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__exact_match
+msgid "Exact Match"
+msgstr "Correspondance exacte"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_report_wizard__exact_match
+msgid "The whole value must be equal to the term instead of just containing it."
+msgstr "La valeur complète doit être égale au terme au lieu de simplement le contenir."
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__match_mode
+msgid "Match Mode"
+msgstr "Mode de correspondance"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__match_mode__any
+msgid "Any term (OR)"
+msgstr "Un des termes (OU)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__match_mode__all
+msgid "All terms (AND)"
+msgstr "Tous les termes (ET)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__datacenter_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_datacenter
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_dc
+msgid "Datacenters"
+msgstr "Datacenters"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__hall_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_kanban
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_form
+#: model:ir.actions.act_window,name:cloud_inventory.action_hall
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_hall
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__hall_ids
+msgid "Halls"
+msgstr "Halls"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__room_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_hall_form
+#: model:ir.actions.act_window,name:cloud_inventory.action_room
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_room
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hall__room_ids
+msgid "Rooms"
+msgstr "Salles"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__product_type_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_product_type
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_ptype
+msgid "Product Types"
+msgstr "Types de produit"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__brand_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_brand
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_brand
+msgid "Brands"
+msgstr "Marques"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__model_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_model
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_model
+msgid "Models"
+msgstr "Modèles"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__cluster_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_cluster
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_cluster
+msgid "Clusters"
+msgstr "Clusters"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__cpu_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__cpu_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_cpu
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cpu__name
+msgid "CPU"
+msgstr "CPU"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__ram_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__ram_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_ram
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_ram__name
+msgid "RAM"
+msgstr "RAM"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__storage_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__storage_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_storage
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_storage__name
+msgid "Storage"
+msgstr "Storage"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__tag_ids
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__tag_id
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_tag__name
+msgid "TAG"
+msgstr "TAG"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__site_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_site
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_site
+msgid "Sites"
+msgstr "Sites"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__responsible_ids
+msgid "Responsibles"
+msgstr "Responsables"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__nature
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__nature
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_movement__asset_nature
+msgid "Nature"
+msgstr "Nature"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__nature__physical
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__nature__physical
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_product_type__nature__physical
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__physical
+msgid "Physical"
+msgstr "Physique"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__nature__digital
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_product_type__nature__digital
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__digital
+msgid "Digital"
+msgstr "Digital"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__nature__logical
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__nature__logical
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_product_type__nature__logical
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__logical
+msgid "Logical"
+msgstr "Logique"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__state
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__state
+msgid "Status"
+msgstr "État"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__state__in_warehouse
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__state__in_warehouse
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__in_warehouse
+msgid "In Warehouse"
+msgstr "En entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__state__in_service
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__state__in_service
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__in_service
+msgid "In Service"
+msgstr "En service"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__state__in_transit
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__state__in_transit
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__in_transit
+msgid "In Transit"
+msgstr "En transit"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__state__decommissioned
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__state__decommissioned
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__decommissioned
+msgid "Decommissioned"
+msgstr "Déclassé"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__warehouse_ids
+#: model:ir.actions.act_window,name:cloud_inventory.action_warehouse
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_warehouses_view
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_wh
+msgid "Warehouses"
+msgstr "Entrepôts"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__nic_ids
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__nic_ids
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_nic__name
+msgid "NIC"
+msgstr "NIC (carte réseau)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__hba_ids
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__hba_ids
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hba__name
+msgid "HBA"
+msgstr "HBA"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__reason
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__last_reason
+msgid "Last Reason"
+msgstr "Dernier motif"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__lane
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__rack_lane
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__lane
+msgid "Lane"
+msgstr "Voie"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__lane__A
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_rack__lane__A
+msgid "A"
+msgstr "A"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__lane__B
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_rack__lane__B
+msgid "B"
+msgstr "B"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__lane__C
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_rack__lane__C
+msgid "C"
+msgstr "C"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_report_wizard__lane__D
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_rack__lane__D
+msgid "D"
+msgstr "D"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__include_history
+msgid "Include movement history"
+msgstr "Inclure l'historique des mouvements"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_report_wizard__include_history
+msgid "Adds a sheet with every movement of the selected items."
+msgstr "Ajoute une feuille avec tous les mouvements des équipements sélectionnés."
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__date_in_from
+msgid "Entered From"
+msgstr "Entré du"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__date_in_to
+msgid "Entered To"
+msgstr "Entré au"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__date_out_from
+msgid "Exited From"
+msgstr "Sorti du"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__date_out_to
+msgid "Exited To"
+msgstr "Sorti au"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__file_data
+msgid "File"
+msgstr "Fichier"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_report_wizard__file_name
+msgid "File Name"
+msgstr "Nom du fichier"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Export of the manual selection. The filters are ignored."
+msgstr "Export de la sélection manuelle. Les filtres sont ignorés."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Report Options"
+msgstr "Options du rapport"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "One term per line: service tag, name, model, license key, rack, date..."
+msgstr "Un terme par ligne : service tag, nom, modèle, clé de licence, rack, date..."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_audit
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_audit
+msgid "Audit Search"
+msgstr "Recherche d'audit"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Product"
+msgstr "Produit"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Status and Dates"
+msgstr "Statut et dates"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Generate PDF"
+msgstr "Générer le PDF"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Generate Excel"
+msgstr "Générer l'Excel"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_report_wizard_form
+msgid "Cloud Inventory Reporting"
+msgstr "Reporting de l'inventaire Cloud"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_wizard
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_export
+msgid "Export Excel / PDF"
+msgstr "Export Excel / PDF"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_in_warehouse
+msgid "Report: In Warehouse"
+msgstr "Rapport : En entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_in_service
+msgid "Report: In Service"
+msgstr "Rapport : En service"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_in_transit
+msgid "Report: In Transit"
+msgstr "Rapport : En transit"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_decommissioned
+msgid "Report: Decommissioned"
+msgstr "Rapport : Déclassés"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_digital
+msgid "Report: Licenses and Keys"
+msgstr "Rapport : licences et clés"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_logical
+msgid "Report: Logical Items"
+msgstr "Rapport : éléments logiques"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_bdc
+msgid "Report: Benguerir (BDC)"
+msgstr "Rapport : Benguerir (BDC)"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_report_cdc
+msgid "Report: Casa (CDC)"
+msgstr "Rapport : Casa (CDC)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_tree
+msgid "Export Excel"
+msgstr "Exporter en Excel"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_tree
+msgid "Export PDF"
+msgstr "Exporter en PDF"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Put in Service"
+msgstr "Mettre en service"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Relocate"
+msgstr "Déplacer"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Return to Warehouse"
+msgstr "Retourner en entrepôt"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Send to Another Site"
+msgstr "Envoyer vers un autre site"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Decommission"
+msgstr "Déclasser"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Receive in Warehouse"
+msgstr "Réceptionner en entrepôt"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_movements
+#: model:ir.actions.act_window,name:cloud_inventory.action_movement
+#: code:addons/cloud_inventory/models/asset.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__move_count
+msgid "Movements"
+msgstr "Mouvements"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "hostname, license name..."
+msgstr "hostname, nom de licence..."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Identification"
+msgstr "Identification"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Life Cycle"
+msgstr "Cycle de vie"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Specifications"
+msgstr "Spécifications"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Where is it?"
+msgstr "Où se trouve-t-il ?"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Position in the rack (RU)"
+msgstr "Position dans le rack (RU)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Shipment"
+msgstr "Expédition"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Serial / Contract No."
+msgstr "N° de série / contrat"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__license_key
+msgid "License / Key"
+msgstr "Licence / Clé"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__move_ids
+msgid "Movement History"
+msgstr "Historique des mouvements"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_form
+msgid "Notes, history, remarks..."
+msgstr "Notes, historique, remarques..."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_kanban
+msgid "· RU"
+msgstr "· RU"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Name / Ref / Service Tag / Comment"
+msgstr "Nom / Réf / Service Tag / Commentaire"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Active (not decommissioned)"
+msgstr "Actifs (non déclassés)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Digital (licenses / keys)"
+msgstr "Digitaux (licences / clés)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Entered (last 30 days)"
+msgstr "Entrés (30 derniers jours)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Entered this year"
+msgstr "Entrés cette année"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Exited (last 30 days)"
+msgstr "Sortis (30 derniers jours)"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "Expired licenses"
+msgstr "Licences expirées"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "My products"
+msgstr "Mes produits"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__product_type_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_product_type
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_product_type__name
+msgid "Product Type"
+msgstr "Type de produit"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__brand_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_brand
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_brand__name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_model__brand_id
+msgid "Brand"
+msgstr "Marque"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__model_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_model
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_model__name
+msgid "Model"
+msgstr "Modèle"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__cluster_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_cluster
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cluster__name
+msgid "Cluster"
+msgstr "Cluster"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__site_id
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_site
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_site__name
+msgid "Site"
+msgstr "Site"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__responsible_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Entry Date"
+msgstr "Date d'entrée"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+msgid "Exit Date"
+msgstr "Date de sortie"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_asset_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_hall_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_search
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_asset
+msgid "Equipment Inventory"
+msgstr "Inventaire des équipements"
+
+#. module: cloud_inventory
+#: model_terms:ir.actions.act_window,help:cloud_inventory.action_asset
+msgid "Register your first equipment"
+msgstr "Enregistrez votre premier équipement"
+
+#. module: cloud_inventory
+#: model_terms:ir.actions.act_window,help:cloud_inventory.action_asset
+msgid "Servers, switches, licenses, activation keys, virtual machines... everything is centralized here, separate from the ERP stock."
+msgstr "Serveurs, switchs, licences, clés d'activation, machines virtuelles... tout est centralisé ici, séparé du stock ERP."
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_asset_new
+msgid "New Equipment"
+msgstr "Nouvel équipement"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_asset_analysis
+msgid "Inventory Analysis"
+msgstr "Analyse de l'inventaire"
+
+#. module: cloud_inventory
+#: model:ir.actions.server,name:cloud_inventory.server_action_export_selected
+msgid "Export selection (Excel / PDF)"
+msgstr "Exporter la sélection (Excel / PDF)"
+
+#. module: cloud_inventory
+#: model:ir.actions.server,name:cloud_inventory.server_action_move_selected
+msgid "Move / change status"
+msgstr "Déplacer / changer le statut"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_cpu
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_cpu
+msgid "CPUs"
+msgstr "CPU"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_ram
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_ram
+msgid "RAM Sizes"
+msgstr "Tailles de RAM"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_storage
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_storage
+msgid "Storage Sizes"
+msgstr "Capacités de stockage"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_tag
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_tag
+msgid "TAGs (platforms)"
+msgstr "TAG (plateformes)"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_nic
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_nic
+msgid "NICs"
+msgstr "NIC (cartes réseau)"
+
+#. module: cloud_inventory
+#: model:ir.actions.act_window,name:cloud_inventory.action_hba
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_hba
+msgid "HBAs"
+msgstr "HBA"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.actions.act_window,name:cloud_inventory.action_dashboard
+msgid "Cloud Inventory Overview"
+msgstr "Vue d'ensemble de l'inventaire Cloud"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+msgid "Equipment inventory independent from the ERP stock. Click an indicator to see the details."
+msgstr "Inventaire des équipements indépendant du stock ERP. Cliquez sur un indicateur pour voir le détail."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__total
+msgid "Total Products"
+msgstr "Total produits"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+msgid "Expiring in 30 days"
+msgstr "Expirent dans 30 jours"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_dashboard_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__expired
+msgid "Expired"
+msgstr "Expirées"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_kanban
+msgid "products"
+msgstr "produits"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_form
+msgid "Products"
+msgstr "Produits"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_form
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_datacenter_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_hall_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_form
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__note
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_warehouse__note
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hall__note
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__note
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__note
+msgid "Notes"
+msgstr "Notes"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_warehouse_form
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_warehouse__asset_count
+msgid "Items in Warehouse"
+msgstr "Équipements en entrepôt"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_warehouse_form
+msgid "Notes..."
+msgstr "Notes..."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_room_form
+msgid "Generate Racks by Lane"
+msgstr "Générer les racks par voie"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_rack_form
+msgid "Mounted Equipment"
+msgstr "Équipements montés"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_home
+msgid "Home"
+msgstr "Accueil"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_assets
+msgid "All Equipment"
+msgstr "Tous les équipements"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_asset_new
+msgid "Add Equipment"
+msgstr "Ajouter un équipement"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_racks_view
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_racks
+msgid "Rack Usage"
+msgstr "Occupation des racks"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_reporting
+msgid "Reporting"
+msgstr "Reporting"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_analysis
+msgid "Analysis (pivot / graph)"
+msgstr "Analyse (pivot / graphique)"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_predefined
+msgid "Predefined Reports"
+msgstr "Rapports prédéfinis"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_in_warehouse
+msgid "Equipment in Warehouse"
+msgstr "Équipements en entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_in_service
+msgid "Equipment in Service"
+msgstr "Équipements en service"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_in_transit
+msgid "Equipment in Transit"
+msgstr "Équipements en transit"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_decom
+msgid "Decommissioned Equipment"
+msgstr "Équipements déclassés"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_digital
+msgid "Licenses and Keys"
+msgstr "Licences et clés"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_logical
+msgid "Logical Items"
+msgstr "Éléments logiques"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_bdc
+msgid "Benguerir (BDC)"
+msgstr "Benguerir (BDC)"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_rep_cdc
+msgid "Casa (CDC)"
+msgstr "Casa (CDC)"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_settings
+msgid "Settings"
+msgstr "Paramètres"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_locations
+msgid "Locations"
+msgstr "Emplacements"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_variables
+msgid "Variables"
+msgstr "Variables"
+
+#. module: cloud_inventory
+#: model:ir.actions.server,name:cloud_inventory.server_action_lang_fr
+msgid "Switch to French"
+msgstr "Passer en français"
+
+#. module: cloud_inventory
+#: model:ir.actions.server,name:cloud_inventory.server_action_lang_en
+msgid "Switch to English"
+msgstr "Passer en anglais"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_lang
+msgid "Language"
+msgstr "Langue"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_lang_fr
+msgid "Français"
+msgstr "Français"
+
+#. module: cloud_inventory
+#: model:ir.ui.menu,name:cloud_inventory.menu_cloud_inv_lang_en
+msgid "English"
+msgstr "English"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_form
+msgid "Comment..."
+msgstr "Commentaire..."
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Receipts"
+msgstr "Réceptions"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Deployments"
+msgstr "Déploiements"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Returns to Warehouse"
+msgstr "Retours en entrepôt"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Transfers"
+msgstr "Transferts"
+
+#. module: cloud_inventory
+#: model_terms:ir.ui.view,arch_db:cloud_inventory.view_movement_search
+msgid "Last 30 days"
+msgstr "30 derniers jours"
+
+#. module: cloud_inventory
+#: model:ir.actions.report,name:cloud_inventory.action_report_assets
+msgid "Cloud Inventory (PDF)"
+msgstr "Inventaire Cloud (PDF)"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "Export selection"
+msgstr "Export de la sélection"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "The rack does not belong to the selected room."
+msgstr "Le rack n'appartient pas à la salle sélectionnée."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "The room does not belong to the selected hall."
+msgstr "La salle n'appartient pas au hall sélectionné."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "The hall does not belong to the selected datacenter."
+msgstr "Le hall n'appartient pas au datacenter sélectionné."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "The warehouse does not belong to the selected datacenter."
+msgstr "L'entrepôt n'appartient pas au datacenter sélectionné."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "The exit date cannot be before the entry date."
+msgstr "La date de sortie ne peut pas être antérieure à la date d'entrée."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+#, python-format
+msgid "Unknown language %s."
+msgstr "Langue %s inconnue."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+#, python-format
+msgid "Invalid RU range %s-%s for rack %s (%s RU)."
+msgstr "Plage RU %s-%s invalide pour le rack %s (%s RU)."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+#, python-format
+msgid "RU %s-%s in rack %s already used by: %s"
+msgstr "RU %s-%s du rack %s déjà utilisés par : %s"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/asset.py:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_asset
+msgid "Cloud Inventory Asset"
+msgstr "Produit de l'inventaire Cloud"
+
+#. module: cloud_inventory
+#: model:ir.model.fields.selection,name:cloud_inventory.selection__cloud_inv_asset__nature__digital
+msgid "Digital (license / key)"
+msgstr "Digital (licence / clé)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__service_tag
+msgid "Service Tag"
+msgstr "Service Tag"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__ru_display
+msgid "RU"
+msgstr "RU"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__license_expiry
+msgid "Expiry Date"
+msgstr "Date d'expiration"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__license_seats
+msgid "Seats / Cores"
+msgstr "Postes / cœurs"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__date_in
+msgid "Warehouse Entry Date"
+msgstr "Date d'entrée en entrepôt"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_asset__date_out
+msgid "Warehouse Exit Date"
+msgstr "Date de sortie d'entrepôt"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/config.py:0
+#, python-format
+msgid "\"%s\" already exists in this list."
+msgstr "« %s » existe déjà dans cette liste."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/config.py:0
+#, python-format
+msgid "Model \"%s\" already exists for this brand."
+msgstr "Le modèle « %s » existe déjà pour cette marque."
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_config_mixin
+msgid "Cloud Inventory configurable list"
+msgstr "Liste configurable de l'inventaire Cloud"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_config_mixin__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_brand__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_model__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cpu__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_ram__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_storage__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_nic__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hba__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cluster__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_site__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_tag__sequence
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_product_type__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_config_mixin__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_brand__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_model__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cpu__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_ram__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_storage__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_nic__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hba__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_cluster__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_site__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_tag__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_product_type__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__active
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_warehouse__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_nic
+msgid "NIC (network card)"
+msgstr "NIC (carte réseau)"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_hba
+msgid "HBA (host bus adapter)"
+msgstr "HBA (carte bus hôte)"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_tag
+msgid "TAG (platform)"
+msgstr "TAG (plateforme)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_product_type__nature
+msgid "Default Nature"
+msgstr "Nature par défaut"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "All Products"
+msgstr "Tous les produits"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "Licenses expiring within 30 days"
+msgstr "Licences expirant sous 30 jours"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "No data"
+msgstr "Aucune donnée"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_state
+msgid "By Status"
+msgstr "Par statut"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_cluster
+msgid "By Cluster"
+msgstr "Par cluster"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_datacenter
+msgid "By Datacenter"
+msgstr "Par datacenter"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_type
+msgid "By Product Type"
+msgstr "Par type de produit"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__html_brand
+msgid "By Brand"
+msgstr "Par marque"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/dashboard.py:0
+msgid "Rack Usage (%)"
+msgstr "Occupation des racks (%)"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_dashboard
+msgid "Cloud Inventory Dashboard"
+msgstr "Tableau de bord de l'inventaire Cloud"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_dashboard__expiring
+msgid "Expiring Soon"
+msgstr "Expire bientôt"
+
+#. module: cloud_inventory
+#: model:ir.model.constraint,message:cloud_inventory.constraint_cloud_inv_datacenter_code_uniq
+msgid "Datacenter code must be unique."
+msgstr "Le code du datacenter doit être unique."
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__code
+msgid "Code"
+msgstr "Code"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,help:cloud_inventory.field_cloud_inv_datacenter__code
+msgid "Short code, e.g. CDC (Casa) or BDC (Benguerir)"
+msgstr "Code court, ex. CDC (Casa) ou BDC (Benguerir)"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__city
+msgid "City"
+msgstr "Ville"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__hall_count
+msgid "Hall Count"
+msgstr "Nombre de halls"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_datacenter__asset_count
+msgid "Product Count"
+msgstr "Nombre de produits"
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_hall
+msgid "Data Hall"
+msgstr "Hall de données"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_hall__complete_name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_room__complete_name
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__complete_name
+msgid "Complete Name"
+msgstr "Nom complet"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__number
+msgid "Position in Lane"
+msgstr "Position dans la voie"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__total_ru
+msgid "Total RU"
+msgstr "RU total"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__used_ru
+msgid "Used RU"
+msgstr "RU utilisés"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__free_ru
+msgid "Free RU"
+msgstr "RU libres"
+
+#. module: cloud_inventory
+#: model:ir.model.fields,field_description:cloud_inventory.field_cloud_inv_rack__usage_percent
+msgid "Usage %"
+msgstr "Occupation %"
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/movement.py:0
+msgid "Movement history cannot be modified."
+msgstr "L'historique des mouvements ne peut pas être modifié."
+
+#. module: cloud_inventory
+#: code:addons/cloud_inventory/models/movement.py:0
+msgid "Movement history cannot be deleted."
+msgstr "L'historique des mouvements ne peut pas être supprimé."
+
+#. module: cloud_inventory
+#: model:ir.model,name:cloud_inventory.model_cloud_inv_movement
+msgid "Equipment Movement"
+msgstr "Mouvement d'équipement"
+
+#. module: cloud_inventory
+#: model:res.groups,name:cloud_inventory.group_cloud_inv_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: cloud_inventory
+#: model:res.groups,name:cloud_inventory.group_cloud_inv_manager
+msgid "Manager (Settings and Export)"
+msgstr "Responsable (Paramètres et Export)"

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_movement_tree" model="ir.ui.view">
+        <field name="name">cloud.inv.movement.tree</field>
+        <field name="model">cloud.inv.movement</field>
+        <field name="arch" type="xml">
+            <list create="0" decoration-danger="move_type == 'decommission'" decoration-warning="move_type == 'transfer'">
+                <field name="date"/>
+                <field name="asset_id"/>
+                <field name="move_type"/>
+                <field name="from_location"/>
+                <field name="to_location"/>
+                <field name="reason"/>
+                <field name="replacement_id" optional="show"/>
+                <field name="request_ref" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="comment" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_movement_form" model="ir.ui.view">
+        <field name="name">cloud.inv.movement.form</field>
+        <field name="model">cloud.inv.movement</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="asset_id"/>
+                            <field name="date"/>
+                            <field name="move_type"/>
+                            <field name="reason"/>
+                        </group>
+                        <group>
+                            <field name="from_location"/>
+                            <field name="to_location"/>
+                            <field name="replacement_id"/>
+                            <field name="request_ref"/>
+                            <field name="user_id"/>
+                        </group>
+                    </group>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_movement_search" model="ir.ui.view">
+        <field name="name">cloud.inv.movement.search</field>
+        <field name="model">cloud.inv.movement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="asset_id"/>
+                <field name="from_location"/>
+                <field name="to_location"/>
+                <field name="request_ref"/>
+                <field name="comment"/>
+                <field name="user_id"/>
+                <filter name="f_receive" string="Receipts" domain="[('move_type','=','receive')]"/>
+                <filter name="f_deploy" string="Deployments" domain="[('move_type','=','deploy')]"/>
+                <filter name="f_return" string="Returns to Warehouse" domain="[('move_type','=','return')]"/>
+                <filter name="f_transfer" string="Transfers" domain="[('move_type','=','transfer')]"/>
+                <filter name="f_decom" string="Decommissioning" domain="[('move_type','=','decommission')]"/>
+                <separator/>
+                <filter name="f_30" string="Last 30 days"
+                        domain="[('date','&gt;=',(context_today()-relativedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_type" string="Movement Type" context="{'group_by': 'move_type'}"/>
+                    <filter name="g_reason" string="Reason" context="{'group_by': 'reason'}"/>
+                    <filter name="g_asset" string="Equipment" context="{'group_by': 'asset_id'}"/>
+                    <filter name="g_user" string="Done By" context="{'group_by': 'user_id'}"/>
+                    <filter name="g_date" string="Date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_movement" model="ir.actions.act_window">
+        <field name="name">Movements</field>
+        <field name="res_model">cloud.inv.movement</field>
+        <field name="view_mode">list,form,pivot</field>
+    </record>
+</odoo>
